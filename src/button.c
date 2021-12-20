@@ -26,7 +26,7 @@ debounce_t * debounce;
 QueueHandle_t queue;
 
 static void update_button(debounce_t *d) {
-    d->history = (d->history << 1) | gpio_get_level(d->pin);
+    d->history = (d->history << 1) | !gpio_get_level(d->pin);
 }
 
 #define MASK   0b1111000000111111
